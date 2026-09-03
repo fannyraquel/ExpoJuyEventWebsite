@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap');
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Brand constants — never change */
+:root {
+  --turquesa: #1DBECB;
+  --purpura: #7209B7;
+  --lila: #A881FC;
+  --carbon: #4A4A4A;
+  --gris: #8E8E93;
+  --purpura-oscuro: #4D0080;
+}
+
+/* Light theme (default) */
+:root {
+  --t-bg: #FFFFFF;
+  --t-surface: #F0F0F5;
+  --t-section-dark: #F0F0F5;
+  --t-nav-bg: rgba(255,255,255,0.97);
+  --t-nav-border: #1DBECB;
+  --t-text: #4A4A4A;
+  --t-text-muted: #8E8E93;
+  --t-text-inv: #FFFFFF;
+  --t-card: #FFFFFF;
+  --t-card-border: #E0E0EA;
+  --t-logo-blend: normal;
+  --t-logo-filter: none;
+  --t-footer-bg: #1A1A2E;
+}
+
+/* Dark theme */
+.dark {
+  --t-bg: #1A1A2E;
+  --t-surface: #23233E;
+  --t-section-dark: #12122A;
+  --t-nav-bg: rgba(26,26,46,0.97);
+  --t-nav-border: #1DBECB;
+  --t-text: #FFFFFF;
+  --t-text-muted: #A0A0C0;
+  --t-text-inv: #4A4A4A;
+  --t-card: #23233E;
+  --t-card-border: rgba(255,255,255,0.1);
+  --t-logo-blend: lighten;
+  --t-logo-filter: none;
+  --t-footer-bg: #0D0D1A;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--t-bg);
+  color: var(--t-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-mono-data {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Aguayo geometric divider */
+.aguayo-divider {
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--purpura) 0px, var(--purpura) 16px,
+    var(--turquesa) 16px, var(--turquesa) 32px,
+    var(--lila) 32px, var(--lila) 48px,
+    var(--purpura) 48px, var(--purpura) 64px,
+    var(--turquesa) 64px, var(--turquesa) 80px,
+    var(--lila) 80px, var(--lila) 96px
+  );
+}
+
+.aguayo-divider-thin {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--purpura) 0px, var(--purpura) 8px,
+    var(--turquesa) 8px, var(--turquesa) 16px,
+    var(--lila) 16px, var(--lila) 24px,
+    var(--purpura) 24px, var(--purpura) 32px
+  );
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(114,9,183,0.3); border-radius: 2px; }
+
+/* Live pulse */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.live-pulse { animation: livePulse 1.5s ease-in-out infinite; }

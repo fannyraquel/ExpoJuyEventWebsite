@@ -1,0 +1,10 @@
+{
+  "description": "Discover ExpoJuy with a comprehensive platform for event schedules, exhibitor information, and regional insights, enhancing networking and participation.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
