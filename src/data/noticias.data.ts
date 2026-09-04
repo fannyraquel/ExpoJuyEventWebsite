@@ -1,0 +1,58 @@
+import { Noticia } from "../types/domain.types";
+
+export const NOTICIAS: Noticia[] = [
+  {
+    id: 1,
+    tag: "Internacional",
+    tagColor: "bg-[#0891B2] text-white",
+    title: "ExpoJuy firma convenio con la Cámara de Comercio de Brasil",
+    date: "28 ago 2026",
+    img: "https://images.unsplash.com/photo-1765567972885-9b63d0f6c7db?w=600&h=380&fit=crop&auto=format",
+    excerpt: "El acuerdo abre nuevas oportunidades para empresas del Corredor Bioceánico en mercados del MERCOSUR.",
+  },
+  {
+    id: 2,
+    tag: "Desarrollo productivo",
+    tagColor: "bg-[#7209B7] text-white",
+    title: "Minería del litio: récord de expositores del sector para 2026",
+    date: "25 ago 2026",
+    img: "https://images.unsplash.com/photo-1765567972996-92bf41b4b960?w=600&h=380&fit=crop&auto=format",
+    excerpt: "Más de 40 empresas del sector minero confirmaron su presencia en el pabellón de la Puna.",
+  },
+  {
+    id: 3,
+    tag: "Turismo",
+    tagColor: "bg-[#7209B7] text-white",
+    title: "Quebrada de Humahuaca: destino estrella en la agenda internacional",
+    date: "20 ago 2026",
+    img: "https://images.unsplash.com/photo-1765567973009-5ee18972c42f?w=600&h=380&fit=crop&auto=format",
+    excerpt: "El Patrimonio de la Humanidad suma nuevos circuitos turísticos presentados en ExpoJuy 2026.",
+  },
+  {
+    id: 4,
+    tag: "Talleres",
+    tagColor: "bg-[#0891B2] text-white",
+    title: "Taller de exportaciones para PYMES: cupos limitados",
+    date: "18 ago 2026",
+    img: "https://images.unsplash.com/photo-1599471333048-e9a5c8ceb4b1?w=600&h=380&fit=crop&auto=format",
+    excerpt: "Capacitación gratuita para empresas del NOA con exportaciones en curso o en proyecto.",
+  },
+  {
+    id: 5,
+    tag: "Recreativo",
+    tagColor: "bg-[#7209B7] text-white",
+    title: "Muestra gastronómica: los sabores de Jujuy en un solo lugar",
+    date: "15 ago 2026",
+    img: "https://images.unsplash.com/photo-1765567972885-9b63d0f6c7db?w=600&h=380&fit=crop&auto=format",
+    excerpt: "Humita, locro, chicha y empanadas jujeñas serán el eje de la plaza gastronómica.",
+  },
+  {
+    id: 6,
+    tag: "Charlas",
+    tagColor: "bg-[#0891B2] text-white",
+    title: "Charla abierta: El litio y la soberanía tecnológica argentina",
+    date: "12 ago 2026",
+    img: "https://images.unsplash.com/photo-1765567972996-92bf41b4b960?w=600&h=380&fit=crop&auto=format",
+    excerpt: "Expertos del CONICET debatirán sobre el rol del litio en la transición energética global.",
+  },
+];
