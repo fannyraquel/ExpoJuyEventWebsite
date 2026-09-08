@@ -79,7 +79,7 @@ export default function PlanoPage() {
       <AguayoDivider />
 
       {/* CONTENIDO PRINCIPAL */}
-      <main className="max-w-[1450px] mx-auto px-4 py-10">
+      <main className="max-w-[1450px] mx-auto px-4 py-10 space-y-6">
         {/* FORMULARIO DE REGISTRO EXPOSITOR (MODAL/ACORDEÓN) */}
         {showRegistroModal && (
           <div className="mb-8">
@@ -87,10 +87,7 @@ export default function PlanoPage() {
           </div>
         )}
 
-        {/* OPCIONES DE COLECTIVOS / CONECTIVIDAD PARA LLEGAR */}
-        <PlanoColectivosSection />
-
-        {/* BUSCADOR Y FILTRO DE CATEGORÍAS */}
+        {/* BUSCADOR Y FILTRO DE CATEGORÍAS DE STANDS */}
         <PlanoSearchFilter
           busqueda={busqueda}
           onSearchChange={setBusqueda}
@@ -99,7 +96,7 @@ export default function PlanoPage() {
           onSelectCat={setSelectedCat}
         />
 
-        {/* MAPAS DEL PREDIO (GOOGLE MAPS + MAPA INTERACTIVO) */}
+        {/* MAPAS DEL PREDIO (MAPA INTERACTIVO FULL-WIDTH ARRIBA + GOOGLE MAPS Y COLECTIVOS ABAJO) */}
         <PlanoMapSection
           stands={stands}
           busqueda={busqueda}
