@@ -40,7 +40,7 @@ export default function InteractiveMap({
   selectedCat,
   isAdmin: propIsAdmin,
 }: Props) {
-  const [zoom, setZoom] = useState<number>(1);
+  const [zoom, setZoom] = useState<number>(1.5);
   const [selectedStand, setSelectedStand] = useState<Stand | null>(null);
 
   // Verificación del Rol de Administrador
@@ -127,7 +127,7 @@ export default function InteractiveMap({
           {/* Botón Zoom In */}
           <button
             type="button"
-            onClick={() => setZoom((z) => Math.min(z + 0.25, 3))}
+            onClick={() => setZoom((z) => Math.min(z + 0.25, 4))}
             className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 text-white transition-all hover:bg-[#1DBECB] hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
             title="Acercar mapa"
             aria-label="Acercar mapa"
@@ -165,10 +165,10 @@ export default function InteractiveMap({
           {/* Botón Reset Zoom */}
           <button
             type="button"
-            onClick={() => setZoom(1)}
+            onClick={() => setZoom(1.5)}
             className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 text-white/80 transition-all hover:bg-[#7209B7] hover:text-white hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
-            title="Restablecer tamaño (100%)"
-            aria-label="Restablecer tamaño"
+            title="Restablecer tamaño predeterminado (150%)"
+            aria-label="Restablecer tamaño predeterminado"
           >
             <svg
               className="h-4 w-4"
