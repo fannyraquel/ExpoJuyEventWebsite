@@ -267,3 +267,50 @@ select:focus-visible {
   background: var(--turquesa);
   color: #ffffff;
 }
+
+/* Transiciones fluidas para visualización de imágenes */
+@keyframes imgFadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes imgSlideInRight {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes imgSlideInLeft {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+.animate-img-fade {
+  animation: imgFadeInScale 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-img-slide-right {
+  animation: imgSlideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-img-slide-left {
+  animation: imgSlideInLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

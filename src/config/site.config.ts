@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   edition: "2026",
   dates: "12–15 Octubre 2026",
   location: "Predio Ferial, San Salvador de Jujuy, Argentina",
-  lema: "Jujuy al mundo, el mundo a Jujuy",
+  lema: "Conectando Países, Creando Oportunidades",
   contact: {
     email: "info@expojuy.gob.ar",
     phone: "+54 388 422-XXXX",

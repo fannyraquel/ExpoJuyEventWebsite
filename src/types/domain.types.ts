@@ -5,12 +5,14 @@ export type Section =
   | "agenda"
   | "negocios"
   | "plano"
-  | "bioceánico"
   | "descubrí"
-  | "data"
   | "noticias"
   | "faq"
   | "contacto"
+  | "acreditacion"
+  | "tesorería"
+  | "recepción"
+  | "sponsors"
   | "admin"
   | "login";
 

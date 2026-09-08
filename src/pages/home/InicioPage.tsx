@@ -115,7 +115,7 @@ export const CTA_VISITA_DATA: CtaVisitaData = {
   description:
     "Acreditate online y prepará todo para disfrutar de ExpoJuy sin demoras.",
   buttonText: "Acreditate ahora",
-  buttonSection: "contacto",
+  buttonSection: "acreditacion",
 };
 
 export const NOTICIAS_DESTACADAS_DATA: NoticiasDestacadasData = {

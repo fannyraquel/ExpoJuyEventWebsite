@@ -18,6 +18,8 @@ export default function Footer() {
       title: "Secciones",
       links: [
         ["inicio", "Inicio"],
+        ["sponsors", "Sponsors Oficiales"],
+        ["acreditacion", "Acreditación Visitantes"],
         ["explorar", "Explorar Expositores"],
         ["agenda", "Agenda de Actividades"],
         ["negocios", "Ronda de Negocios B2B"],
@@ -28,8 +30,6 @@ export default function Footer() {
       links: [
         ["descubrí", "Descubrí Jujuy"],
         ["plano", "Plano Interactivo"],
-        ["bioceánico", "Corredor Bioceánico"],
-        ["data", "ExpoJuy DATA"],
       ] as [Section, string][],
     },
     {

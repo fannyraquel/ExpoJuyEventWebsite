@@ -1,5 +1,6 @@
 import RoleGuard from "../../components/common/RoleGuard";
 import AguayoDivider from "../../components/common/AguayoDivider";
+import GestionAcreditacionesPanel from "../../components/admin/GestionAcreditacionesPanel";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigation } from "../../context/NavigationContext";
 
@@ -27,8 +28,11 @@ export default function AdminDashboardPage() {
           <p className="text-white/80 text-sm">Sesión activa como: {user?.name} ({role})</p>
         </div>
         <AguayoDivider />
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="max-w-6xl mx-auto px-4 py-12 space-y-8">
+          {/* PANEL PRINCIPAL DE AUDITORÍA Y VALIDACIÓN DE COMPROBANTES DE ACREDITACIÓN */}
+          <GestionAcreditacionesPanel />
+
+          <div className="grid md:grid-cols-3 gap-6">
             <div
               className="p-6 rounded-xl shadow-sm transition-colors"
               style={{ background: "var(--t-card)", border: "1px solid var(--t-card-border)" }}
@@ -76,18 +80,24 @@ export default function AdminDashboardPage() {
             <h2 className="font-display text-xl font-bold mb-4" style={{ color: "var(--t-text)" }}>
               Herramientas de Administrador
             </h2>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
-              <button onClick={() => navigate("explorar")} className="bg-[#7209B7] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
-                ⚙ Gestionar Expositores
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              <button onClick={() => navigate("recepción")} className="bg-[#7209B7] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-1.5">
+                <span>🚪</span> Escáner Recepción
               </button>
-              <button onClick={() => navigate("agenda")} className="bg-[#0891B2] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
-                📅 Editar Agenda
+              <button onClick={() => navigate("tesorería")} className="bg-[#10B981] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-1.5">
+                <span>🏦</span> Tesoreria / Pagos
               </button>
-              <button onClick={() => navigate("plano")} className="bg-[#1DBECB] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
-                🗺 Asignar Stands
+              <button onClick={() => navigate("explorar")} className="bg-[#0891B2] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+                ⚙ Expositores
+              </button>
+              <button onClick={() => navigate("agenda")} className="bg-[#1DBECB] text-slate-950 p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+                📅 Agenda
+              </button>
+              <button onClick={() => navigate("plano")} className="bg-[#3B82F6] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+                🗺 Stands
               </button>
               <button onClick={exportReport} className="bg-[#D97706] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
-                📊 Exportar Reporte DATA
+                📊 Reporte DATA
               </button>
             </div>
           </div>

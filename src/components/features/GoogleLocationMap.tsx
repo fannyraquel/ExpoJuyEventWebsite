@@ -75,20 +75,22 @@ export default function GoogleLocationMap({
     });
   }, [stands, busqueda, selectedCat]);
 
-  // VISTA FALLBACK INTERACTIVA (Si no hay API Key o hay error al cargar Google Maps)
+  // VISTA FALLBACK INTERACTIVA (Google Maps oficial si no hay API Key en .env)
   if (!apiKey || loadError) {
     return (
       <div className="relative h-full w-full overflow-hidden bg-[#0F172A] text-white">
-        {/* Mapa Interactivo Iframe OpenStreetMap (Ciudad Cultural, Jujuy) */}
+        {/* Mapa Oficial de Google Maps (Ciudad Cultural, Jujuy) */}
         <iframe
           title="Ubicación Ciudad Cultural Jujuy"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-65.3080%2C-24.1915%2C-65.2910%2C-24.1795&amp;layer=mapnik&amp;marker=-24.1855%2C-65.2995"
-          className="h-full w-full border-0 opacity-80 transition-opacity hover:opacity-100"
+          src="https://maps.google.com/maps?q=-24.1855,-65.2995&hl=es&z=17&output=embed"
+          className="h-full w-full border-0 opacity-100 transition-opacity"
+          allowFullScreen
           loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         />
 
         {/* Overlay informativo sobre la ubicación */}
-        <div className="absolute top-4 left-4 z-10 max-w-xs rounded-2xl border border-white/15 bg-slate-900/90 p-4 text-xs shadow-2xl backdrop-blur-xl">
+        <div className="absolute top-4 left-4 z-10 max-w-xs rounded-2xl border border-white/15 bg-slate-900/90 p-4 text-xs shadow-2xl backdrop-blur-xl pointer-events-auto">
           <div className="flex items-center gap-2 text-[#1DBECB] font-extrabold uppercase tracking-wider text-[10px]">
             <span>📍</span>
             <span>Ubicación GPS Oficial</span>
@@ -122,7 +124,7 @@ export default function GoogleLocationMap({
     );
   }
 
-  // ESTADO DE CARGA GOOGLE MAPS
+  // ESTADO DE CARGA GOOGLE MAPS JS API
   if (!isLoaded) {
     return (
       <div className="h-full flex items-center justify-center bg-[#0F172A] text-white">
