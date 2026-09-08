@@ -44,6 +44,14 @@ export interface AgendaEvent {
   idioma: string;
 }
 
+export interface ExpositorInfo {
+  nombre: string;
+  cargo: string;
+  foto: string;
+  email?: string;
+  telefono?: string;
+}
+
 export interface Empresa {
   id?: string;
   nombre: string;
@@ -51,6 +59,11 @@ export interface Empresa {
   region: string;
   busca: string;
   pais: string;
+  imagen?: string;
+  logo?: string;
+  descripcion?: string;
+  standNumero?: string;
+  expositores?: ExpositorInfo[];
 }
 
 export interface RegionDetail {
@@ -81,6 +94,8 @@ export interface Stand {
   w: number;
   h: number;
   open: boolean;
+  numero?: string;
+  nombre?: string;
 }
 
 export interface LayerPoint {

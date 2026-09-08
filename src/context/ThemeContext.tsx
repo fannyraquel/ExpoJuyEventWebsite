@@ -16,10 +16,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem("expojuy_dark_mode", JSON.stringify(darkMode));
+    const root = document.documentElement;
+    const body = document.body;
+
     if (darkMode) {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
+      body.classList.add("dark");
+      root.style.colorScheme = "dark";
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
+      body.classList.remove("dark");
+      root.style.colorScheme = "light";
     }
   }, [darkMode]);
 

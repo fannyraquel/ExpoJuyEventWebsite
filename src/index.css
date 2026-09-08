@@ -47,6 +47,7 @@
   --font-display: 'Ambit', 'Plus Jakarta Sans', sans-serif;
 }
 
+@variant dark (&:where(.dark, .dark *));
 @custom-variant dark (&:where(.dark, .dark *));
 
 html,
@@ -87,20 +88,20 @@ body,
 
 /* Dark theme */
 .dark {
-  --t-bg: #1A1A2E;
-  --t-surface: #23233E;
-  --t-section-dark: #12122A;
-  --t-nav-bg: rgba(26,26,46,0.97);
+  --t-bg: #12122A;
+  --t-surface: #1A1A2E;
+  --t-section-dark: #0D0D1A;
+  --t-nav-bg: rgba(18,18,42,0.97);
   --t-nav-border: #1DBECB;
   --t-text: #FFFFFF;
   --t-text-muted: #94A3B8;
   --t-text-inv: #2D3748;
-  --t-card: #23233E;
+  --t-card: #1A1A2E;
   --t-card-border: rgba(255,255,255,0.1);
   --t-input-bg: rgba(255,255,255,0.05);
   --t-input-border: rgba(255,255,255,0.15);
   --t-logo-blend: lighten;
-  --t-footer-bg: #0D0D1A;
+  --t-footer-bg: #0B0B18;
 }
 
 * {
@@ -123,7 +124,7 @@ body {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  background: #f8f9fc;
+  background: var(--t-bg);
 }
 
 .global-visual-background video {

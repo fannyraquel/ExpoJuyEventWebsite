@@ -5,7 +5,7 @@ export default function StatusBadge({ status }: { status: EventStatus }) {
   const cfg = STATUS_CONFIG[status] || STATUS_CONFIG["próximo"];
   return (
     <span
-      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold font-mono-data"
+      className="inline-block items-center gap-2 px-2.5 py-1 rounded-full text-xs font-bold font-mono-data"
       style={{
         background: cfg.bgColor,
         color: cfg.textColor,

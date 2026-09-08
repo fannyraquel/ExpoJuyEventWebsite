@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "@context/ThemeContext";
 import GlobalVisualBackground from "./GlobalVisualBackground";
 
 export default function MainLayout({ children }: { children: ReactNode }) {

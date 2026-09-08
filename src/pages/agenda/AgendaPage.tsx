@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import StatusBadge from "../../components/common/StatusBadge";
 import { agendaService } from "../../api/services/agendaService";
 import { AgendaDay, AgendaEvent } from "../../types/domain.types";
-import { STATUS_CONFIG } from "../../config/theme.config";
+import StatusBadge from "../../components/common/StatusBadge";
 import videoMundo from "../../assets/mundo.mp4";
-import logoExpojuy from "../../assets/logoagenda.png"; // Ajustá la ruta según tu estructura
-// Fotos representativas por jornada (podés reemplazar por las imágenes de tu proyecto)
-const JORNADA_INFO: Record<
-  AgendaDay,
-  { fecha: string; nombre: string; img: string; subtitulo: string }
-> = {
+import {
+  AgendaHeader,
+  JornadaSelector,
+  RubroFilter,
+  JornadaInfoCard,
+  AgendaEventList,
+  JornadaDetail,
+} from "../../components/agenda";
+
+export const JORNADA_INFO: Record<AgendaDay, JornadaDetail> = {
   1: {
     fecha: "09 Octubre",
     nombre: "Apertura & Producción",
@@ -36,6 +39,18 @@ const JORNADA_INFO: Record<
   },
 };
 
+export const ALL_RUBROS = [
+  "Todos",
+  "Institucional",
+  "Comercio",
+  "Minería",
+  "Negocios",
+  "Turismo",
+  "Agroindustria",
+  "Finanzas",
+  "Cultura",
+  "Datos",
+];
 
 export default function AgendaPage() {
   const videoFondoRef = useRef<HTMLVideoElement | null>(null);
@@ -44,11 +59,11 @@ export default function AgendaPage() {
   const [eventos, setEventos] = useState<AgendaEvent[]>([]);
   const [cargando, setCargando] = useState(false);
   const [agendaPersonal, setAgendaPersonal] = useState<string[]>([]);
+  const [selectedEvento, setSelectedEvento] = useState<AgendaEvent | null>(null);
 
-  // Reducir la velocidad del video apenas monte el componente
   useEffect(() => {
     if (videoFondoRef.current) {
-      videoFondoRef.current.playbackRate = 1; // 0.4 = 40% de la velocidad normal
+      videoFondoRef.current.playbackRate = 1;
     }
   }, []);
 
@@ -64,31 +79,24 @@ export default function AgendaPage() {
       .finally(() => setCargando(false));
   }, [day]);
 
-  const allRubros = [
-    "Todos",
-    "Institucional",
-    "Comercio",
-    "Minería",
-    "Negocios",
-    "Turismo",
-    "Agroindustria",
-    "Finanzas",
-    "Cultura",
-    "Datos",
-  ];
-
   const filteredEventos = eventos.filter(
     (e) => filtroRubro === "Todos" || e.rubro === filtroRubro
   );
 
   const jornadaActual = JORNADA_INFO[day];
-return (
-    <div className="relative min-h-screen overflow-hidden pb-24 font-sans text-slate-800">
-      {/* ====================================================
-          FONDO: VIDEO DEL MUNDO (Estilo Hero Luminoso)
-          ==================================================== */}
-      <div className="fixed inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden bg-white">
-        {/* 1. Video del mundo en loop bien visible */}
+
+  const toggleAgendaPersonal = (titulo: string) => {
+    setAgendaPersonal((current) =>
+      current.includes(titulo)
+        ? current.filter((t) => t !== titulo)
+        : [...current, titulo]
+    );
+  };
+
+  return (
+    <div className="relative min-h-screen overflow-hidden pb-24 font-sans text-slate-800 dark:text-slate-100 bg-[var(--t-bg)] transition-colors duration-300">
+      {/* FONDO: VIDEO DEL MUNDO */}
+      <div className="fixed inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden bg-white dark:bg-[#12122A]">
         <video
           ref={videoFondoRef}
           src={videoMundo}
@@ -96,203 +104,169 @@ return (
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-center scale-105 opacity-60"
+          className="w-full h-full object-cover object-center scale-105 opacity-60 dark:opacity-40"
         />
 
-        {/* 2. Capa de degradado blanco suave que protege legibilidad sin tapar el video */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/70 to-slate-100/90" 
-          aria-hidden="true" 
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/70 to-slate-100/90 dark:from-[#12122A]/40 dark:via-[#12122A]/70 dark:to-[#12122A]/90 transition-colors"
+          aria-hidden="true"
         />
 
-        {/* 3. Resplandores ambientales de marca */}
-        <div 
-          className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#7209B7]/15 blur-3xl" 
-          aria-hidden="true" 
+        <div
+          className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#7209B7]/15 dark:bg-[#7209B7]/25 blur-3xl"
+          aria-hidden="true"
         />
-        <div 
-          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-[#1DBECB]/20 blur-3xl" 
-          aria-hidden="true" 
+        <div
+          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-[#1DBECB]/20 dark:bg-[#1DBECB]/25 blur-3xl"
+          aria-hidden="true"
         />
       </div>
 
-      {/* ====================================================
-          CONTENIDO POR ENCIMA DEL VIDEO (z-10)
-          ==================================================== */}
+      {/* CONTENIDO POR ENCIMA DEL VIDEO */}
       <div className="relative z-10">
-        {/* ====================================================
-            CABECERA EDITORIAL (Con pt-24 para la navbar)
-            ==================================================== */}
-        <header className="px-6 pt-24 pb-8 text-center md:pt-28">
-          <div className="mx-auto max-w-4xl flex flex-col items-center">
-            {/* Etiqueta superior */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1DBECB]/30 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#7209B7] shadow-sm backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-[#1DBECB] animate-pulse" />
-              4 Días de Encuentro • San Salvador de Jujuy
-            </div>
+        <AgendaHeader />
 
-            {/* Logo principal GRANDE y centrado */}
-            <div className="relative mb-3 w-full flex justify-center">
-              <div className="absolute inset-0 -z-10 rounded-full bg-[#A881FC]/20 blur-3xl" />
-              <img
-                src={logoExpojuy}
-                alt="ExpoJuy 2026"
-                className="h-auto w-[85%] sm:w-[90%] lg:w-full max-w-[520px] object-contain mix-blend-multiply"
-              />
-            </div>
-
-            {/* Subtítulo de la sección 
-            <h2 className="text-xl font-bold uppercase tracking-wider text-slate-700 md:text-2xl">
-              Itinerario & Agenda Oficial
-            </h2>*/}
-          </div>
-        </header>
-
-        {/* ====================================================
-            TARJETA BLANCA FLOTANTE CENTRAL (Estilo Itinerario)
-            ==================================================== */}
         <main className="mx-auto max-w-4xl px-4 sm:px-6">
-          <div className="rounded-[2.5rem] bg-white p-6 shadow-2xl md:p-12">
-
-            {/* Selector de Jornadas (Píldoras Superiores) */}
-            <div className="mb-8 flex flex-wrap items-center justify-center gap-2 border-b border-slate-100 pb-6 md:justify-start">
-              {([1, 2, 3, 4] as AgendaDay[]).map((d) => {
-                const activo = day === d;
-                return (
-                  <button
-                    key={d}
-                    onClick={() => setDay(d)}
-                    className={`cursor-pointer rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
-                      activo
-                        ? "bg-[#7209B7] text-white shadow-md shadow-[#7209B7]/30 scale-105"
-                        : "bg-[#7209B7]/10 text-[#7209B7] hover:bg-[#7209B7]/20"
-                    }`}
-                  >
-                    Día {d} • {JORNADA_INFO[d].fecha}
-                  </button>
-                );
-              })}
-            </div>
+          <div className="rounded-[2.5rem] bg-white dark:bg-[#1A1A2E] p-6 shadow-2xl border border-transparent dark:border-white/10 md:p-12 transition-colors duration-300">
+            {/* Selector de Jornadas */}
+            <JornadaSelector
+              currentDay={day}
+              jornadasInfo={JORNADA_INFO}
+              onSelectDay={setDay}
+            />
 
             {/* Filtros de Rubro */}
-            <div className="mb-10 flex flex-wrap gap-1.5">
-              {allRubros.map((r) => {
-                const activo = filtroRubro === r;
-                return (
-                  <button
-                    key={r}
-                    onClick={() => setFiltroRubro(r)}
-                    className={`cursor-pointer rounded-full px-3 py-1 text-[11px] font-semibold transition-colors ${
-                      activo
-                        ? "bg-[#1DBECB] text-white"
-                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                    }`}
-                  >
-                    {r}
-                  </button>
-                );
-              })}
+            <RubroFilter
+              rubros={ALL_RUBROS}
+              selectedRubro={filtroRubro}
+              onSelectRubro={setFiltroRubro}
+            />
+
+            {/* Insignia y Encabezado por encima de los registros de la agenda */}
+            <div className="mb-6 flex flex-wrap items-center gap-3 border-b border-slate-100 dark:border-white/10 pb-4">
+              <span className="rounded-full bg-[#1DBECB]/20 px-4 py-1.5 text-xs font-bold tracking-wider text-[#0e8a95] dark:text-[#1DBECB] uppercase">
+                Día {day}
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white transition-colors">
+                {jornadaActual.nombre}
+              </h2>
             </div>
 
-            {/* ====================================================
-                BLOQUE PRINCIPAL: FOTO CIRCULAR + LISTADO DUAL
-                ==================================================== */}
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-start">
-
-              {/* FOTO CIRCULAR EMBLEMÁTICA (Columna izquierda) */}
-              <div className="flex flex-col items-center text-center md:col-span-4 md:sticky md:top-8">
-                <div className="relative h-44 w-44 overflow-hidden rounded-full border-4 border-white shadow-xl ring-8 ring-[#1DBECB]/20 sm:h-52 sm:w-52">
-                  <img
-                    src={jornadaActual.img}
-                    alt={jornadaActual.nombre}
-                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
-                  />
-                </div>
-                <span className="mt-4 text-xs font-bold tracking-wider text-[#7209B7] uppercase">
-                  {jornadaActual.fecha}
-                </span>
-                <p className="mt-1 max-w-[200px] text-xs text-slate-500">
-                  {jornadaActual.subtitulo}
-                </p>
-              </div>
-
-              {/* LISTA DE EVENTOS (Columna derecha: Hora vs Actividad) */}
-              <div className="md:col-span-8">
-
-                {/* Insignia de encabezado de bloque */}
-                <div className="mb-6 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-[#1DBECB]/20 px-4 py-1.5 text-xs font-bold tracking-wider text-[#0e8a95] uppercase">
-                    Día {day}
-                  </span>
-                  <h2 className="text-xl font-bold text-slate-800">
-                    {jornadaActual.nombre}
-                  </h2>
-                </div>
-
-                {cargando ? (
-                  <div className="flex h-48 items-center justify-center">
-                    <span className="h-8 w-8 animate-spin rounded-full border-2 border-[#7209B7] border-t-transparent" />
-                  </div>
-                ) : filteredEventos.length === 0 ? (
-                  <div className="rounded-2xl border border-dashed border-slate-200 p-8 text-center text-xs text-slate-400">
-                    No hay actividades registradas para este rubro.
-                  </div>
-                ) : (
-                  <div className="divide-y divide-slate-100">
-                    {filteredEventos.map((e, i) => {
-                      return (
-                        <div
-                          key={i}
-                          className="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 py-4 transition-colors hover:bg-slate-50/80 rounded-xl px-2.5"
-                        >
-                          {/* Columna Izquierda: Hora */}
-                          <div className="min-w-[100px] text-xs sm:text-sm font-semibold tracking-tight text-slate-400 group-hover:text-[#7209B7] transition-colors">
-                            {e.hora}
-                          </div>
-
-                          {/* Columna Derecha: Título, Lugar y Tags */}
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-start justify-between gap-3">
-                              <h3 className="text-sm sm:text-base font-medium text-slate-700 leading-snug">
-                                {e.titulo}
-                              </h3>
-                              <div className="shrink-0">
-                                <StatusBadge status={e.status} />
-                              </div>
-                            </div>
-
-                            <div className="mt-1.5 flex flex-wrap items-center gap-3 text-[11px] text-slate-400">
-                              <span>📍 {e.lugar}</span>
-                              <span>🌐 {e.idioma}</span>
-                              <span className="font-semibold text-[#1DBECB]">
-                                {e.rubro}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  setAgendaPersonal((current) =>
-                                    current.includes(e.titulo)
-                                      ? current.filter((title) => title !== e.titulo)
-                                      : [...current, e.titulo],
-                                  )
-                                }
-                                className="ml-auto font-bold text-[#7209B7] hover:underline cursor-pointer"
-                              >
-                                {agendaPersonal.includes(e.titulo) ? "✓ En mi agenda" : "+ Mi agenda"}
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-
+            {/* Tarjeta Informativa de la Jornada (Foto + Fecha + Subtítulo) */}
+            <div className="mb-8 flex justify-center rounded-2xl bg-slate-50/50 dark:bg-white/5 p-6 border border-slate-100 dark:border-white/10 transition-colors">
+              <JornadaInfoCard jornada={jornadaActual} />
             </div>
+
+            {/* Listado de Eventos */}
+            <AgendaEventList
+              day={day}
+              jornadaNombre={jornadaActual.nombre}
+              eventos={filteredEventos}
+              cargando={cargando}
+              agendaPersonal={agendaPersonal}
+              onToggleAgendaPersonal={toggleAgendaPersonal}
+              onSelectEvento={setSelectedEvento}
+            />
           </div>
         </main>
       </div>
+
+      {/* MODAL DETALLE DE EVENTO */}
+      {selectedEvento && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm animate-fade-in"
+          onClick={() => setSelectedEvento(null)}
+        >
+          <div
+            className="relative w-full max-w-lg overflow-hidden rounded-[2rem] border border-[var(--t-card-border)] bg-[var(--t-card)] p-6 text-[var(--t-text)] shadow-2xl transition-all md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="pointer-events-none absolute -top-20 -right-20 h-48 w-48 rounded-full bg-[#7209B7]/10 dark:bg-[#7209B7]/25 blur-2xl" />
+            <div className="pointer-events-none absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-[#1DBECB]/10 dark:bg-[#1DBECB]/25 blur-2xl" />
+
+            <button
+              onClick={() => setSelectedEvento(null)}
+              className="absolute top-5 right-5 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-[var(--t-surface)] text-[var(--t-text)] transition hover:bg-[#7209B7] hover:text-white"
+              aria-label="Cerrar modal"
+            >
+              ✕
+            </button>
+
+            <div className="flex flex-wrap items-center gap-2 pr-8">
+              {selectedEvento.rubro && (
+                <span className="rounded-full bg-[#1DBECB]/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#0e8a95] dark:text-[#1DBECB]">
+                  {selectedEvento.rubro}
+                </span>
+              )}
+              {selectedEvento.status && (
+                <StatusBadge status={selectedEvento.status} />
+              )}
+            </div>
+
+            <h3 className="mt-4 text-xl font-black text-[var(--t-text)] md:text-2xl leading-snug">
+              {selectedEvento.titulo}
+            </h3>
+
+            <div className="mt-6 grid grid-cols-2 gap-4 rounded-2xl bg-[var(--t-surface)] p-4 text-xs">
+              <div className="flex flex-col gap-1">
+                <span className="font-bold uppercase tracking-wider text-[var(--t-text-muted)] text-[10px]">
+                  🕒 Horario
+                </span>
+                <span className="font-extrabold text-[#7209B7] dark:text-[#A881FC]">
+                  {selectedEvento.hora || "A confirmar"}
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="font-bold uppercase tracking-wider text-[var(--t-text-muted)] text-[10px]">
+                  📍 Ubicación / Lugar
+                </span>
+                <span className="font-bold text-[var(--t-text)]">
+                  {selectedEvento.lugar || "Ciudad Cultural"}
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="font-bold uppercase tracking-wider text-[var(--t-text-muted)] text-[10px]">
+                  🌐 Idioma
+                </span>
+                <span className="font-bold text-[var(--t-text)]">
+                  {selectedEvento.idioma || "Español"}
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="font-bold uppercase tracking-wider text-[var(--t-text-muted)] text-[10px]">
+                  📌 Estado
+                </span>
+                <span className="font-bold capitalize text-[var(--t-text)]">
+                  {selectedEvento.status}
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-7 flex flex-wrap items-center justify-end gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => toggleAgendaPersonal(selectedEvento.titulo)}
+                className="cursor-pointer rounded-full bg-[#7209B7] px-6 py-2.5 text-xs font-black text-white shadow-md transition hover:bg-[#5f0799] hover:scale-105"
+              >
+                {agendaPersonal.includes(selectedEvento.titulo)
+                  ? "✓ Quitar de Mi Agenda"
+                  : "+ Agregar a Mi Agenda"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setSelectedEvento(null)}
+                className="cursor-pointer rounded-full border border-[var(--t-card-border)] bg-[var(--t-card)] px-5 py-2.5 text-xs font-bold text-[var(--t-text)] transition hover:bg-[var(--t-surface)]"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
