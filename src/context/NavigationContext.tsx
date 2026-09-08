@@ -12,13 +12,53 @@ interface NavigationContextType {
 
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
+// Helper para detectar y preservar la subruta base del sitio (ej: "/ExpoJuyEventWebsite" en GitHub Pages)
+function getBasePrefix(): string {
+  const pathname = window.location.pathname;
+
+  for (const route of ROUTES) {
+    if (route.path !== "/" && pathname.endsWith(route.path)) {
+      return pathname.slice(0, pathname.length - route.path.length);
+    }
+  }
+
+  if (pathname !== "/" && pathname.endsWith("/")) {
+    return pathname.slice(0, -1);
+  }
+
+  if (pathname !== "/" && !ROUTES.some((r) => r.path === pathname)) {
+    return pathname;
+  }
+
+  return "";
+}
+
 function getPathBySection(section: Section): string {
+  const basePrefix = getBasePrefix();
   const route = ROUTES.find((r) => r.sectionKey === section);
-  return route ? route.path : "/";
+  const routePath = route ? route.path : "/";
+
+  if (routePath === "/") {
+    return basePrefix ? `${basePrefix}/` : "/";
+  }
+  return `${basePrefix}${routePath}`;
 }
 
 function getSectionByPath(pathname: string): Section {
-  const cleanPath = pathname === "" || pathname === "/" ? "/" : pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+  const basePrefix = getBasePrefix();
+  let cleanPath = pathname;
+
+  if (basePrefix && cleanPath.startsWith(basePrefix)) {
+    cleanPath = cleanPath.slice(basePrefix.length);
+  }
+
+  cleanPath =
+    cleanPath === "" || cleanPath === "/"
+      ? "/"
+      : cleanPath.endsWith("/")
+      ? cleanPath.slice(0, -1)
+      : cleanPath;
+
   const route = ROUTES.find((r) => r.path === cleanPath);
   return route ? route.sectionKey : "inicio";
 }
