@@ -181,15 +181,72 @@ export default function HeroSection({
                 </div>
               </div>
 
-              {/* Logo principal */}
+              {/* Logo principal con halo luminoso */}
               <div className="relative mb-6 w-full flex justify-center">
-                <div className="absolute inset-0 -z-10 rounded-full bg-[#A881FC]/15 blur-3xl" />
+
+                {/* Halo principal */}
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-[42%]
+                    top-[55%]
+                    -z-10
+                    h-[35%]
+                    w-[35%]
+                    rounded-full
+                    bg-[#1DBECB]/15
+                    blur-[60px]
+                    dark:bg-[#1DBECB]/20
+                  "
+                />                
+
+                {/* Luz turquesa secundaria */}
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-[35%]
+                    top-[45%]
+                    -z-10
+                    h-[45%]
+                    w-[45%]
+                    -translate-x-1/2
+                    -translate-y-1/2
+                    rounded-full
+                    bg-[#1DBECB]/10
+                    blur-3xl
+                    dark:bg-[#1DBECB]/15
+                  "
+                  aria-hidden="true"
+                />
+
                 <img
                   src={logoExpojuy}
                   alt={data.logoAlt}
-                  className="h-auto w-[90%] sm:w-[95%] lg:w-full max-w-[640px] object-contain"
+                  className="
+                    relative
+                    z-10
+                    h-auto
+                    w-[90%]
+                    sm:w-[95%]
+                    lg:w-full
+                    max-w-[640px]
+                    object-contain
+
+                    transition-all
+                    duration-500
+
+                    dark:brightness-125
+                    dark:contrast-125
+                    dark:saturate-125
+                    dark:mix-blend-screen
+                    dark:drop-shadow-[0_0_10px_rgba(168,129,252,0.25)]
+                    dark:drop-shadow-[0_0_25px_rgba(29,190,203,0.12)]
+                  "
                 />
-              </div>
+
+              </div>              
 
               <p className="mb-6 w-full max-w-lg text-center text-sm leading-relaxed text-[var(--t-text-muted)] md:text-base transition-colors">
                 {data.description}

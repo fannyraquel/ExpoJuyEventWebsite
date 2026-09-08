@@ -3,6 +3,10 @@ import { agendaService } from "../../api/services/agendaService";
 import { AgendaDay, AgendaEvent } from "../../types/domain.types";
 import StatusBadge from "../../components/common/StatusBadge";
 import videoMundo from "../../assets/mundo.mp4";
+import jornada1Img from "../../imports/1-BGVsbHVM.webp";
+import jornada2Img from "../../imports/CAEII-EXAR.webp";
+import jornada3Img from "../../imports/1725236430766.jpg";
+import jornada4Img from "../../imports/whatsapp-image-2024-04-10-at-205552jpeg.webp";
 import {
   AgendaHeader,
   JornadaSelector,
@@ -17,28 +21,30 @@ export const JORNADA_INFO: Record<AgendaDay, JornadaDetail> = {
     fecha: "09 Octubre",
     nombre: "Apertura & Producción",
     subtitulo: "Innovación regional y minería sustentable",
-    img: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop&q=80",
+    img: jornada1Img,
   },
+
   2: {
     fecha: "10 Octubre",
     nombre: "Comercio & Agroindustria",
     subtitulo: "Rondas de negocios y cadena de valor",
-    img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&auto=format&fit=crop&q=80",
+    img: jornada2Img,
   },
+
   3: {
     fecha: "11 Octubre",
     nombre: "Tecnología & Energía",
     subtitulo: "Transición energética y economía del conocimiento",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
+    img: jornada3Img,
   },
+
   4: {
     fecha: "12 Octubre",
     nombre: "Cultura, Turismo & Cierre",
     subtitulo: "Encuentro internacional de integración",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=80",
+    img: jornada4Img,
   },
 };
-
 export const ALL_RUBROS = [
   "Todos",
   "Institucional",
@@ -153,7 +159,7 @@ export default function AgendaPage() {
             </div>
 
             {/* Tarjeta Informativa de la Jornada (Foto + Fecha + Subtítulo) */}
-            <div className="mb-8 flex justify-center rounded-2xl bg-slate-50/50 dark:bg-white/5 p-6 border border-slate-100 dark:border-white/10 transition-colors">
+            <div className="mb-8 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50/50 dark:border-white/10 dark:bg-white/5 transition-colors">
               <JornadaInfoCard jornada={jornadaActual} />
             </div>
 

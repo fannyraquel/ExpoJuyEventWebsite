@@ -7,20 +7,26 @@ export interface JornadaInfoCardProps {
 
 export default function JornadaInfoCard({ jornada }: JornadaInfoCardProps) {
   return (
-    <div className="flex flex-col items-center text-center">
-      <div className="relative h-36 w-36 sm:h-44 sm:w-44 overflow-hidden rounded-full border-4 border-white dark:border-[#23233E] shadow-xl ring-8 ring-[#1DBECB]/20 transition-all">
+<div className="w-full overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#1A1A2E]">
+  <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden">
         <img
           src={jornada.img}
-          alt={jornada.nombre}
-          className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
+          alt={`${jornada.fecha} - ${jornada.nombre}`}
+          className="h-full w-full object-cover"
         />
+    {/* Degradado para integrar la imagen */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
       </div>
-      <span className="mt-4 text-xs font-bold tracking-wider text-[#7209B7] dark:text-[#A881FC] uppercase">
-        {jornada.fecha}
-      </span>
-      <p className="mt-1 max-w-sm text-xs sm:text-sm font-normal text-slate-500 dark:text-slate-400">
-        {jornada.subtitulo}
-      </p>
-    </div>
+
+    {/* INFORMACIÓN */}
+      <div className="p-5 text-center">
+        <p className="text-sm font-black uppercase tracking-wider text-[#A881FC]">
+          {jornada.fecha}
+        </p>
+        <p className="mt-2 text-sm font-medium text-[var(--t-text-muted)]">
+          {jornada.subtitulo}
+        </p>
+      </div>
+    </div>  
   );
 }

@@ -4,8 +4,7 @@ import { useNavigation } from "@context/NavigationContext";
 import { useTheme } from "@context/ThemeContext";
 import { useLanguage } from "@context/LanguageContext";
 import LangSelector from "@components/common/LangSelector";
-import logoExpojuy from "@assets/EXPOJUY_Logo2026/RGB/expojuy26_horizontal.png";
-
+import logoExpojuy from "@assets/EXPOJUY_Logo2026/RGB/expojuy26_isologotipo.png";
 export default function NavBar() {
   const { activeSection, navigate } = useNavigation();
   const { darkMode, toggleDarkMode } = useTheme();
@@ -68,19 +67,60 @@ export default function NavBar() {
       <nav aria-label="Navegación principal" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex min-h-16 items-center justify-between gap-3 md:gap-6 py-1">
           {/* BRAND LOGO */}
-          <button
-            type="button"
-            onClick={() => goTo("inicio")}
-            className="shrink-0 rounded-xl p-1 transition-all duration-300 hover:scale-105 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1DBECB] cursor-pointer"
-            aria-label="ExpoJuy 2026 - Inicio"
-          >
-            <img
-              src={logoExpojuy}
-              alt="ExpoJuy 2026"
-              className="h-8 sm:h-9 md:h-10 w-auto max-w-[150px] sm:max-w-[170px] object-contain transition-all"
-              style={{ mixBlendMode: darkMode ? "lighten" : "normal" }}
-            />
-          </button>
+        {/* BRAND LOGO */}
+        <button
+          type="button"
+          onClick={() => goTo("inicio")}
+          className="group relative shrink-0 rounded-xl p-1 transition-all duration-300 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1DBECB] cursor-pointer"
+          aria-label="ExpoJuy 2026 - Inicio"
+        >
+          {/* Brillo detrás del isotipo */}
+          <span
+            className="
+              pointer-events-none
+              absolute
+              left-1/2
+              top-1/2
+              -z-10
+              h-8
+              w-12
+              -translate-x-1/2
+              -translate-y-1/2
+              rounded-full
+              bg-[#A881FC]/10
+              blur-xl
+              opacity-0
+              transition-all
+              duration-300
+              group-hover:opacity-100
+              dark:bg-[#1DBECB]/20
+              dark:blur-2xl
+            "
+            aria-hidden="true"
+          />
+
+          <img
+            src={logoExpojuy}
+            alt="ExpoJuy 2026"
+            className="
+              relative
+              z-10
+              h-10
+              sm:h-11
+              md:h-12
+              w-auto
+              max-w-[70px]
+              object-contain
+              transition-all
+              duration-300
+              dark:brightness-125
+              dark:contrast-125
+              dark:saturate-125
+              dark:mix-blend-screen
+              dark:drop-shadow-[0_0_8px_rgba(168,129,252,0.35)]
+            "
+          />
+        </button>
 
           {/* DESKTOP NAVIGATION LINKS (Pills limpia y adaptativa) */}
           <div className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:gap-1.5 lg:flex">
