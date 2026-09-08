@@ -4,7 +4,7 @@
 /* ── Fuentes Oficiales Ambit ────────────────────────────────────────────── */
 @font-face {
   font-family: 'Ambit';
-  src: url('/src/assets/Fuentes_Oficiales/Ambit-Light.otf') format('opentype');
+  src: url('./assets/Fuentes_Oficiales/Ambit-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: 'Ambit';
-  src: url('/src/assets/Fuentes_Oficiales/Ambit-Regular.otf') format('opentype');
+  src: url('./assets/Fuentes_Oficiales/Ambit-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: 'Ambit';
-  src: url('/src/assets/Fuentes_Oficiales/Ambit-SemiBold.otf') format('opentype');
+  src: url('./assets/Fuentes_Oficiales/Ambit-SemiBold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: 'Ambit';
-  src: url('/src/assets/Fuentes_Oficiales/Ambit-Bold.otf') format('opentype');
+  src: url('./assets/Fuentes_Oficiales/Ambit-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
   font-family: 'Ambit';
-  src: url('/src/assets/Fuentes_Oficiales/Ambit-Bold.otf') format('opentype');
+  src: url('./assets/Fuentes_Oficiales/Ambit-Bold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;

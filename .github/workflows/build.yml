@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout del código
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       - name: Configurar Node.js 22.x
         uses: actions/setup-node@v4
