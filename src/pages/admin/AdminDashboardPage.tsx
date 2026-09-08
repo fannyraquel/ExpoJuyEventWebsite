@@ -1,13 +1,26 @@
 import RoleGuard from "../../components/common/RoleGuard";
 import AguayoDivider from "../../components/common/AguayoDivider";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigation } from "../../context/NavigationContext";
 
 export default function AdminDashboardPage() {
   const { user, role } = useAuth();
+  const { navigate } = useNavigation();
+
+  const exportReport = () => {
+    const report = "ExpoJuy 2026 - Reporte DATA\nEmpresas acreditadas: 312\nReuniones B2B: 1840\nOcupacion del predio: 98.5%";
+    const blob = new Blob([report], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "expojuy-2026-reporte.txt";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <RoleGuard requiredRole="admin">
-      <div className="pt-14" style={{ background: "var(--t-bg)", color: "var(--t-text)" }}>
+      <div className="relative z-10 pt-14" style={{ background: "transparent", color: "var(--t-text)" }}>
         <div className="bg-[#DC2626] py-14 px-4 text-center">
           <div className="font-mono-data text-white/70 text-xs uppercase tracking-widest mb-3">Panel de Control General</div>
           <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-2">Administración ExpoJuy 2026</h1>
@@ -64,16 +77,16 @@ export default function AdminDashboardPage() {
               Herramientas de Administrador
             </h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
-              <button className="bg-[#7209B7] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+              <button onClick={() => navigate("explorar")} className="bg-[#7209B7] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
                 ⚙ Gestionar Expositores
               </button>
-              <button className="bg-[#0891B2] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+              <button onClick={() => navigate("agenda")} className="bg-[#0891B2] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
                 📅 Editar Agenda
               </button>
-              <button className="bg-[#1DBECB] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+              <button onClick={() => navigate("plano")} className="bg-[#1DBECB] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
                 🗺 Asignar Stands
               </button>
-              <button className="bg-[#D97706] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+              <button onClick={exportReport} className="bg-[#D97706] text-white p-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
                 📊 Exportar Reporte DATA
               </button>
             </div>

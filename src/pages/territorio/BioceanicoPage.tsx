@@ -8,8 +8,8 @@ export default function BioceanicoPage() {
   const current = BIOCEANICO_LAYERS[layer] || BIOCEANICO_LAYERS["producción"];
 
   return (
-    <div className="pt-14" style={{ background: "var(--t-bg)", color: "var(--t-text)" }}>
-      <div className="bg-[#1A1A2E] py-14 px-4 text-center">
+    <div className="relative z-10 pt-14" style={{ background: "transparent", color: "var(--t-text)" }}>
+      <div className="bg-[#1A1A2E]/78 py-14 px-4 text-center backdrop-blur-sm">
         <div className="font-mono-data text-[#1DBECB] text-xs uppercase tracking-widest mb-3">Geopolítica productiva</div>
         <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-4">Corredor Bioceánico</h1>
         <p className="text-[#FFFFFF]/70 text-lg">Brasil · Paraguay · Jujuy · Chile — el eje del futuro comercial sudamericano</p>

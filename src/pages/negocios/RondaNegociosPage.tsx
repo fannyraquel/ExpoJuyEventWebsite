@@ -22,8 +22,8 @@ export default function RondaNegociosPage() {
   }, []);
 
   return (
-    <div className="pt-14" style={{ background: "var(--t-bg)", color: "var(--t-text)" }}>
-      <div className="relative overflow-hidden bg-[#7209B7] py-20 px-4">
+    <div className="relative z-10 pt-14" style={{ background: "transparent", color: "var(--t-text)" }}>
+      <div className="relative overflow-hidden bg-[#7209B7]/78 py-20 px-4 backdrop-blur-sm">
         <div className="absolute inset-0 opacity-10">
           <div className="aguayo-divider h-full" style={{ backgroundSize: "96px 100%", height: "100%" }} />
         </div>

@@ -5,7 +5,7 @@ import { DATA_INDICATORS } from "../../data/indicadores.data";
 export default function ExpoJuyDataPage() {
   return (
     <div className="pt-14">
-      <div className="bg-[#1A1A2E] py-16 px-4 text-center">
+      <div className="bg-[#1A1A2E]/75 py-16 px-4 text-center backdrop-blur-sm">
         <div className="font-mono-data text-[#1DBECB] text-xs uppercase tracking-widest mb-3">Fuente oficial · Única y verificada</div>
         <h1 className="font-display text-5xl font-black text-white mb-3">ExpoJuy DATA</h1>
         <p className="text-[#FFFFFF]/60 max-w-xl mx-auto">
@@ -20,7 +20,7 @@ export default function ExpoJuyDataPage() {
           <div className="py-20 text-center text-red-400 font-bold">Acceso denegado a los datos oficiales de ExpoJuy DATA.</div>
         }
       >
-        <div className="py-12 px-4" style={{ background: "var(--t-bg)" }}>
+        <div className="py-12 px-4" style={{ background: "transparent" }}>
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
             {DATA_INDICATORS.map((d) => (
               <div

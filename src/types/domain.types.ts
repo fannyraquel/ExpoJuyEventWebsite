@@ -9,6 +9,8 @@ export type Section =
   | "descubrí"
   | "data"
   | "noticias"
+  | "faq"
+  | "contacto"
   | "admin"
   | "login";
 

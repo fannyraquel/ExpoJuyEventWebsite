@@ -21,7 +21,7 @@ export default function LoginPage() {
 
   return (
     <div className="pt-14" style={{ background: "var(--t-bg)", color: "var(--t-text)" }}>
-      <div className="bg-[#1A1A2E] py-16 px-4 text-center">
+      <div className="bg-[#1A1A2E]/75 py-16 px-4 text-center backdrop-blur-sm">
         <div className="font-mono-data text-[#1DBECB] text-xs uppercase tracking-widest mb-3">Configuración de Usuarios y Permisos RBAC</div>
         <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-3">Perfil &amp; Roles</h1>
         <p className="text-white/60 max-w-xl mx-auto text-sm">

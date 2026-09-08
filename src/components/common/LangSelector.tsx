@@ -1,10 +1,11 @@
 import { useState } from "react";
 import FlagIcon from "./FlagIcon";
 import { LANGS } from "../../config/theme.config";
+import { Language, useLanguage } from "../../context/LanguageContext";
 
 export default function LangSelector() {
-  const [selected, setSelected] = useState("ES");
   const [open, setOpen] = useState(false);
+  const { language: selected, setLanguage } = useLanguage();
   const { border } = LANGS[selected];
 
   return (
@@ -26,7 +27,7 @@ export default function LangSelector() {
               <button
                 key={code}
                 onClick={() => {
-                  setSelected(code);
+                  setLanguage(code as Language);
                   setOpen(false);
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm transition-colors hover:bg-white/10 ${

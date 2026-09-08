@@ -17,13 +17,13 @@ export default function NoticiasPage() {
   }, [tag]);
 
   return (
-    <div className="pt-14">
-      <div className="bg-[#7209B7] py-14 px-4 text-center">
+    <div className="relative z-10 pt-14">
+      <div className="bg-[#7209B7]/90 py-14 px-4 text-center backdrop-blur-sm">
         <div className="font-mono-data text-white/70 text-xs uppercase tracking-widest mb-3">Sala de prensa</div>
         <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-3">Noticias</h1>
       </div>
       <AguayoDivider />
-      <div className="max-w-7xl mx-auto px-4 py-10" style={{ background: "var(--t-bg)" }}>
+      <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="flex flex-wrap gap-2 mb-8">
           {TAGS.map((t) => (
             <button

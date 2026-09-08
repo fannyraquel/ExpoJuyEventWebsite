@@ -34,8 +34,8 @@ export default function ExplorarPage() {
   });
 
   return (
-    <div className="pt-14">
-      <div className="bg-[#7209B7] py-14 px-4">
+    <div className="relative z-10 pt-14">
+      <div className="bg-[#7209B7]/90 py-14 px-4 backdrop-blur-sm">
         <div className="max-w-3xl mx-auto text-center">
           <div className="font-mono-data text-white/70 text-xs uppercase tracking-widest mb-3">Explorar ExpoJuy</div>
           <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-4">Empresas &amp; Expositores</h1>
@@ -46,7 +46,11 @@ export default function ExplorarPage() {
               placeholder="Buscar por nombre, rubro o CUIT..."
               className="flex-1 px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white text-sm"
             />
-            <button className="bg-[#1A1A2E] text-white px-5 py-3 rounded-lg font-semibold text-sm hover:bg-black transition-colors">
+            <button
+              type="button"
+              onClick={() => setBusqueda((value) => value.trim())}
+              className="bg-[#1A1A2E] text-white px-5 py-3 rounded-lg font-semibold text-sm hover:bg-black transition-colors"
+            >
               Buscar
             </button>
           </div>
@@ -97,7 +101,7 @@ export default function ExplorarPage() {
           {filtered.map((e) => (
             <div
               key={e.nombre}
-              className="rounded-xl p-5 hover:shadow-md transition-all group"
+              className="rounded-xl p-5 hover:shadow-md transition-all group backdrop-blur-sm"
               style={{ background: "var(--t-card)", border: "1px solid var(--t-card-border)" }}
             >
               <div className="flex items-start justify-between mb-3">

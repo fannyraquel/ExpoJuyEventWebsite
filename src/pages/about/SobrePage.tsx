@@ -4,8 +4,8 @@ import ContactoForm from "../../forms/contacto/ContactoForm";
 
 export default function SobrePage() {
   return (
-    <div className="pt-14" style={{ background: "var(--t-bg)", color: "var(--t-text)" }}>
-      <div className="bg-[#1A1A2E] py-20 px-4 text-center">
+    <div className="relative z-10 pt-14" style={{ background: "transparent", color: "var(--t-text)" }}>
+      <div className="bg-[#1A1A2E]/75 py-20 px-4 text-center backdrop-blur-sm">
         <div className="font-mono-data text-[#1DBECB] text-xs uppercase tracking-widest mb-4">Sobre ExpoJuy</div>
         <h1 className="font-display text-5xl md:text-6xl font-black text-white mb-4">Historia &amp; Misión</h1>
         <p className="text-[#FFFFFF]/70 max-w-2xl mx-auto text-lg">
