@@ -119,7 +119,7 @@ export default function NavBar() {
           </button>
 
           {/* NAVEGACIÓN DESKTOP (PILLS DE ALTO IMPACTO Y SIN SOLAPAMIENTO) */}
-          <div className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:gap-2 xl:flex flex-nowrap overflow-hidden">
+          <div className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:gap-2 xl:flex flex-nowrap">
             {primaryLinks.map(([section, label]) => {
               const isActive = activeSection === section;
               return (
