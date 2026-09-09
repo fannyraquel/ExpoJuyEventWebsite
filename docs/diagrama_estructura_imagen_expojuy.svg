@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 760" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-pre { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 2px; fill: #7209B7; text-anchor: middle; }
+      .hdr-main { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; font-weight: 900; fill: #0F172A; text-anchor: middle; }
+
+      .txt-root { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; font-weight: 800; fill: #FFFFFF; text-anchor: middle; letter-spacing: 1px; }
+      .txt-lvl1 { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: 800; fill: #0F172A; text-anchor: middle; }
+      .txt-region { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12.5px; font-weight: 800; fill: #581C87; text-anchor: middle; letter-spacing: 0.5px; }
+      
+      .txt-desc-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13.5px; font-weight: 800; fill: #7209B7; text-anchor: middle; }
+      .txt-desc-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 600; fill: #334155; text-anchor: middle; }
+
+      .txt-bottom { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12.5px; font-weight: 800; fill: #0F172A; text-anchor: middle; }
+
+      .line-connector { stroke: #475569; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .line-purple { stroke: #7209B7; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+      .card-shadow { filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.08)); }
+      .card-shadow-sm { filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.05)); }
+    </style>
+
+    <!-- Marcador de flecha hacia abajo -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#7209B7" />
+    </marker>
+  </defs>
+
+  <!-- FONDO GENERAL DEL DIAGRAMA -->
+  <rect x="0" y="0" width="840" height="760" rx="16" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- TÍTULO DE LA MEMORIA TÉCNICA -->
+  <text x="420" y="32" class="hdr-pre">ESQUEMA DE ARQUITECTURA FUNCIONAL</text>
+  <text x="420" y="52" class="hdr-main">ESTRUCTURA DE NAVEGACIÓN Y CONTENIDOS • EXPOJUY 2026</text>
+
+  <!-- ========================================================================= -->
+  <!-- NIVEL 0: NODO SUPERIOR INICIO                                            -->
+  <!-- ========================================================================= -->
+  <g class="card-shadow">
+    <rect x="300" y="75" width="240" height="52" rx="8" fill="#7209B7" stroke="#560BAD" stroke-width="2" />
+    <text x="420" y="108" class="txt-root">INICIO</text>
+  </g>
+
+  <!-- CONECTOR DESDE INICIO HACIA EL PRIMER NIVEL (3 COLUMNAS) -->
+  <path d="M 420 127 L 420 155" class="line-purple" />
+  <path d="M 150 155 L 690 155" class="line-connector" />
+  <path d="M 150 155 L 150 185" class="line-connector" marker-end="url(#arrow)" />
+  <path d="M 420 155 L 420 185" class="line-connector" marker-end="url(#arrow)" />
+  <path d="M 690 155 L 690 185" class="line-connector" marker-end="url(#arrow)" />
+
+  <!-- ========================================================================= -->
+  <!-- NIVEL 1: AGENDA - EXPLORAR - DESCUBRÍ JUJUY                               -->
+  <!-- ========================================================================= -->
+  <!-- AGENDA -->
+  <g class="card-shadow-sm">
+    <rect x="60" y="185" width="180" height="46" rx="8" fill="#FFFFFF" stroke="#1DBECB" stroke-width="2" />
+    <text x="150" y="213" class="txt-lvl1">AGENDA</text>
+  </g>
+
+  <!-- EXPLORAR -->
+  <g class="card-shadow-sm">
+    <rect x="320" y="185" width="200" height="46" rx="8" fill="#FFFFFF" stroke="#7209B7" stroke-width="2" />
+    <text x="420" y="213" class="txt-lvl1">EXPLORAR</text>
+  </g>
+
+  <!-- DESCUBRÍ JUJUY -->
+  <g class="card-shadow-sm">
+    <rect x="590" y="185" width="200" height="46" rx="8" fill="#FFFFFF" stroke="#1DBECB" stroke-width="2" />
+    <text x="690" y="213" class="txt-lvl1">DESCUBRÍ JUJUY</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- NIVEL 2: RAMIFICACIÓN REGIONAL (PUNA, QUEBRADA, VALLES, YUNGAS)           -->
+  <!-- ========================================================================= -->
+  <!-- Conector que baja desde EXPLORAR hacia las 4 regiones -->
+  <path d="M 420 231 L 420 260" class="line-purple" />
+  <path d="M 110 260 L 730 260" class="line-connector" />
+  
+  <path d="M 110 260 L 110 288" class="line-connector" marker-end="url(#arrow)" />
+  <path d="M 315 260 L 315 288" class="line-connector" marker-end="url(#arrow)" />
+  <path d="M 525 260 L 525 288" class="line-connector" marker-end="url(#arrow)" />
+  <path d="M 730 260 L 730 288" class="line-connector" marker-end="url(#arrow)" />
+
+  <!-- PUNA -->
+  <g class="card-shadow-sm">
+    <rect x="40" y="288" width="140" height="42" rx="8" fill="#F3E8FF" stroke="#A881FC" stroke-width="1.8" />
+    <text x="110" y="314" class="txt-region">PUNA</text>
+  </g>
+
+  <!-- QUEBRADA -->
+  <g class="card-shadow-sm">
+    <rect x="245" y="288" width="140" height="42" rx="8" fill="#F3E8FF" stroke="#A881FC" stroke-width="1.8" />
+    <text x="315" y="314" class="txt-region">QUEBRADA</text>
+  </g>
+
+  <!-- VALLES -->
+  <g class="card-shadow-sm">
+    <rect x="455" y="288" width="140" height="42" rx="8" fill="#F3E8FF" stroke="#A881FC" stroke-width="1.8" />
+    <text x="525" y="314" class="txt-region">VALLES</text>
+  </g>
+
+  <!-- YUNGAS -->
+  <g class="card-shadow-sm">
+    <rect x="660" y="288" width="140" height="42" rx="8" fill="#F3E8FF" stroke="#A881FC" stroke-width="1.8" />
+    <text x="730" y="314" class="txt-region">YUNGAS</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- NIVEL 3: BLOQUE CONVERGENTE (EMPRESAS / TURISMO / CULTURA / MUNICIPIOS)   -->
+  <!-- ========================================================================= -->
+  <!-- Conectores que bajan de las 4 regiones y se unen -->
+  <path d="M 110 330 L 110 358" class="line-connector" />
+  <path d="M 315 330 L 315 358" class="line-connector" />
+  <path d="M 525 330 L 525 358" class="line-connector" />
+  <path d="M 730 330 L 730 358" class="line-connector" />
+  
+  <path d="M 110 358 L 730 358" class="line-connector" />
+  <path d="M 420 358 L 420 388" class="line-purple" marker-end="url(#arrow-purple)" />
+
+  <!-- CAJA CENTRAL DE CONTENIDOS TRANSVERSALES -->
+  <g class="card-shadow">
+    <rect x="180" y="388" width="480" height="64" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="2" />
+    <text x="420" y="414" class="txt-desc-title">Empresas / Turismo</text>
+    <text x="420" y="437" class="txt-desc-title">Cultura / Municipios</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- NIVEL 4: TERCER GRUPO DE MÓDULOS (RONDA, PLANO, NOTICIAS/CONTACTO)       -->
+  <!-- ========================================================================= -->
+  <!-- Conector que baja desde la caja central hacia el bloque inferior -->
+  <path d="M 420 452 L 420 495" class="line-connector" />
+  <path d="M 150 495 L 690 495" class="line-connector" />
+
+  <path d="M 150 495 L 150 528" class="line-connector" marker-end="url(#arrow)" />
+  <path d="M 420 495 L 420 528" class="line-connector" marker-end="url(#arrow)" />
+  <path d="M 690 495 L 690 528" class="line-connector" marker-end="url(#arrow)" />
+
+  <!-- RONDA DE NEGOCIOS -->
+  <g class="card-shadow-sm">
+    <rect x="50" y="528" width="200" height="52" rx="8" fill="#FFFFFF" stroke="#1DBECB" stroke-width="2" />
+    <text x="150" y="552" class="txt-bottom">RONDA DE</text>
+    <text x="150" y="569" class="txt-bottom">NEGOCIOS</text>
+  </g>
+
+  <!-- PLANO DEL PREDIO -->
+  <g class="card-shadow-sm">
+    <rect x="320" y="528" width="200" height="52" rx="8" fill="#FFFFFF" stroke="#7209B7" stroke-width="2" />
+    <text x="420" y="552" class="txt-bottom">PLANO DEL</text>
+    <text x="420" y="569" class="txt-bottom">PREDIO</text>
+  </g>
+
+  <!-- NOTICIAS / CONTACTO -->
+  <g class="card-shadow-sm">
+    <rect x="590" y="528" width="200" height="52" rx="8" fill="#FFFFFF" stroke="#1DBECB" stroke-width="2" />
+    <text x="690" y="552" class="txt-bottom">NOTICIAS /</text>
+    <text x="690" y="569" class="txt-bottom">CONTACTO</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- PIE DE PÁGINA DEL DIAGRAMA                                                -->
+  <!-- ========================================================================= -->
+  <g transform="translate(50, 625)">
+    <rect x="0" y="0" width="740" height="52" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
+    <text x="370" y="24" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#7209B7" text-anchor="middle">
+      ARQUITECTURA DE CONTENIDOS Y FLUJO DE NAVEGACIÓN
+    </text>
+    <text x="370" y="41" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" fill="#64748B" text-anchor="middle">
+      Segmentación por ejes programáticos feriales y matriz transversal productivo-cultural por regiones
+    </text>
+  </g>
+
+  <rect x="0" y="715" width="840" height="45" rx="0" fill="#0F172A" />
+  <text x="420" y="742" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">EXPOJUY 2026 • MEMORIA TÉCNICA • CÁMARA DE COMERCIO EXTERIOR DE JUJUY</text>
+</svg>

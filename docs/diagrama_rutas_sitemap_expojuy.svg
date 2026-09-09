@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 860" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-pre { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 2px; fill: #7209B7; text-anchor: middle; }
+      .hdr-main { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: 900; fill: #0F172A; text-anchor: middle; }
+      .root-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
+      .root-route { font-family: 'Consolas', 'Courier New', monospace; font-size: 13px; font-weight: bold; fill: #1DBECB; text-anchor: middle; }
+      
+      .node-name { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #0F172A; }
+      .node-route { font-family: 'Consolas', 'Courier New', monospace; font-size: 11px; font-weight: 600; fill: #64748B; }
+      .sub-name { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 600; fill: #1E293B; }
+      .sub-route { font-family: 'Consolas', 'Courier New', monospace; font-size: 10.5px; fill: #7209B7; }
+      
+      .badge-admin { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.5px; font-weight: 800; fill: #DC2626; }
+      .badge-pub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.5px; font-weight: 700; fill: #0891B2; }
+
+      .line-main { stroke: #7209B7; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+      .line-branch { stroke: #94A3B8; stroke-width: 1.8; fill: none; stroke-linecap: round; }
+      .line-sub { stroke: #CBD5E1; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      
+      .card-drop { filter: drop-shadow(0 3px 6px rgba(15, 23, 42, 0.08)); }
+    </style>
+
+    <linearGradient id="gradHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7209B7" />
+      <stop offset="100%" stop-color="#560BAD" />
+    </linearGradient>
+
+    <linearGradient id="gradAdmin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF2F2" />
+      <stop offset="100%" stop-color="#FEE2E2" />
+    </linearGradient>
+  </defs>
+
+  <!-- FONDO GENERAL TIPO CANVAS -->
+  <rect x="0" y="0" width="920" height="860" rx="16" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- TÍTULOS DEL DIAGRAMA -->
+  <text x="460" y="32" class="hdr-pre">MAPA DE RUTAS Y ARQUITECTURA WEB (SITEMAP)</text>
+  <text x="460" y="54" class="hdr-main">SISTEMA OFICIAL EXPOJUY 2026</text>
+
+  <!-- NODO RAÍZ CENTRAL: INICIO ( / ) -->
+  <g class="card-drop">
+    <rect x="340" y="70" width="240" height="54" rx="27" fill="url(#gradHeader)" stroke="#A881FC" stroke-width="2" />
+    <text x="460" y="94" class="root-title">Inicio</text>
+    <text x="460" y="112" class="root-route">/</text>
+  </g>
+
+  <!-- CONECTORES DESDE EL NODO RAÍZ -->
+  <path d="M 460 124 L 460 148" class="line-main" />
+  
+  <!-- LÍNEA DE DISTRIBUCIÓN HORIZONTAL A LAS DOS COLUMNAS -->
+  <path d="M 235 148 L 685 148" class="line-main" />
+  <path d="M 235 148 L 235 170" class="line-branch" />
+  <path d="M 685 148 L 685 170" class="line-branch" />
+
+  <!-- ========================================================================= -->
+  <!-- COLUMNA IZQUIERDA (RUTAS 1 A 4)                                           -->
+  <!-- ========================================================================= -->
+
+  <!-- TRONCAL VERTICAL IZQUIERDO -->
+  <path d="M 50 170 L 50 780" class="line-branch" />
+  <path d="M 235 170 L 50 170" class="line-branch" />
+
+  <!-- 1. EXPLORAR — DIRECTORIO DE EMPRESAS (/explorar) -->
+  <path d="M 50 195 L 85 195" class="line-branch" />
+  <g class="card-drop" transform="translate(85, 172)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Explorar — Directorio de Empresas</text>
+    <rect x="14" y="28" width="80" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/explorar</text>
+
+    <!-- Sub-ruta: Ficha de Empresa (/explorar/:id) -->
+    <path d="M 30 48 L 30 75 L 50 75" class="line-branch" />
+    <g transform="translate(50, 58)">
+      <rect x="0" y="0" width="275" height="34" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+      <text x="12" y="16" class="sub-name">Ficha de Empresa</text>
+      <text x="145" y="16" class="sub-route">/explorar/:id</text>
+      <text x="12" y="28" font-family="'Segoe UI', Arial" font-size="9" fill="#64748B">Detalle B2B, stand y contacto</text>
+    </g>
+  </g>
+
+  <!-- 2. AGENDA DEL EVENTO (/agenda) -->
+  <path d="M 50 300 L 85 300" class="line-branch" />
+  <g class="card-drop" transform="translate(85, 276)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Agenda del Evento</text>
+    <rect x="14" y="28" width="70" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/agenda</text>
+    <text x="240" y="32" class="badge-pub">Cronograma 4 días</text>
+  </g>
+
+  <!-- 3. PLANO DE STANDS SVG (/plano) -->
+  <path d="M 50 375 L 85 375" class="line-branch" />
+  <g class="card-drop" transform="translate(85, 351)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Plano de Stands SVG</text>
+    <rect x="14" y="28" width="60" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/plano</text>
+    <text x="225" y="32" font-family="'Segoe UI', Arial" font-size="9.5" fill="#64748B">Mapa interactivo</text>
+  </g>
+
+  <!-- 4. RONDA DE NEGOCIOS (/negocios) -->
+  <path d="M 50 450 L 85 450" class="line-branch" />
+  <g class="card-drop" transform="translate(85, 426)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Ronda de Negocios</text>
+    <rect x="14" y="28" width="75" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/negocios</text>
+    <text x="235" y="32" class="badge-pub">Vinculación B2B</text>
+  </g>
+
+  <!-- 5. TERRITORIO Y GEOPOLÍTICA (/territorio) + 2 SUB-RUTAS -->
+  <path d="M 50 550 L 85 550" class="line-branch" />
+  <g class="card-drop" transform="translate(85, 526)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Territorio y Geopolítica</text>
+    <rect x="14" y="28" width="80" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/territorio</text>
+
+    <!-- Sub-ruta 1: Descubrí Jujuy -->
+    <path d="M 30 48 L 30 75 L 50 75" class="line-branch" />
+    <g transform="translate(50, 58)">
+      <rect x="0" y="0" width="275" height="32" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+      <text x="12" y="15" class="sub-name">Descubrí Jujuy</text>
+      <text x="110" y="15" font-family="'Consolas'" font-size="9" fill="#64748B">(Puna, Quebrada, Valles, Yungas)</text>
+      <text x="12" y="27" class="sub-route">/territorio/descubri-jujuy</text>
+    </g>
+
+    <!-- Sub-ruta 2: Corredor Bioceánico -->
+    <path d="M 30 75 L 30 115 L 50 115" class="line-branch" />
+    <g transform="translate(50, 98)">
+      <rect x="0" y="0" width="275" height="32" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+      <text x="12" y="15" class="sub-name">Corredor Bioceánico</text>
+      <text x="135" y="15" font-family="'Consolas'" font-size="9" fill="#64748B">(Eje Capricornio)</text>
+      <text x="12" y="27" class="sub-route">/territorio/bioceanico</text>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- COLUMNA DERECHA (RUTAS 6 A 10)                                            -->
+  <!-- ========================================================================= -->
+
+  <!-- TRONCAL VERTICAL DERECHO -->
+  <path d="M 500 170 L 500 780" class="line-branch" />
+  <path d="M 685 170 L 500 170" class="line-branch" />
+
+  <!-- 6. INDICADORES DE LA EXPO (/data) -->
+  <path d="M 500 195 L 535 195" class="line-branch" />
+  <g class="card-drop" transform="translate(535, 172)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Indicadores de la Expo</text>
+    <rect x="14" y="28" width="55" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/data</text>
+    <text x="220" y="32" font-family="'Segoe UI', Arial" font-size="9.5" fill="#64748B">Métricas y datos NOA</text>
+  </g>
+
+  <!-- 7. PRENSA Y NOVEDADES (/noticias) -->
+  <path d="M 500 300 L 535 300" class="line-branch" />
+  <g class="card-drop" transform="translate(535, 276)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Prensa y Novedades</text>
+    <rect x="14" y="28" width="70" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/noticias</text>
+    <text x="215" y="32" class="badge-pub">Artículos &amp; Prensa</text>
+  </g>
+
+  <!-- 8. SOBRE EXPOJUY (/about) -->
+  <path d="M 500 375 L 535 375" class="line-branch" />
+  <g class="card-drop" transform="translate(535, 351)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">ℹ Sobre ExpoJuy</text>
+    <rect x="14" y="28" width="60" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/about</text>
+    <text x="215" y="32" font-family="'Segoe UI', Arial" font-size="9.5" fill="#64748B">Historia y Autoridades</text>
+  </g>
+
+  <!-- 9. INICIAR SESIÓN / ROLES (/auth/login) + PANEL ADMIN -->
+  <path d="M 500 480 L 535 480" class="line-branch" />
+  <g class="card-drop" transform="translate(535, 456)">
+    <rect x="0" y="0" width="345" height="48" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <text x="14" y="22" class="node-name">Iniciar Sesión / Roles</text>
+    <rect x="14" y="28" width="90" height="15" rx="4" fill="#F1F5F9" />
+    <text x="18" y="40" class="node-route">/auth/login</text>
+    <text x="200" y="32" font-family="'Segoe UI', Arial" font-size="9.5" fill="#7209B7" font-weight="bold">Control RBAC</text>
+
+    <!-- Sub-ruta: Panel de Administración — privado (/admin) -->
+    <path d="M 30 48 L 30 85 L 50 85" class="line-branch" />
+    <g transform="translate(50, 68)">
+      <rect x="0" y="0" width="275" height="42" rx="8" fill="url(#gradAdmin)" stroke="#DC2626" stroke-width="1.5" />
+      <text x="12" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#991B1B">Panel de Administración</text>
+      <rect x="185" y="8" width="78" height="15" rx="4" fill="#DC2626" />
+      <text x="189" y="19" font-family="'Segoe UI', Arial" font-size="8.5" font-weight="bold" fill="#FFFFFF">PRIVADO</text>
+      <text x="12" y="34" font-family="'Consolas', monospace" font-size="11" font-weight="bold" fill="#B91C1C">/admin</text>
+      <text x="75" y="34" font-family="'Segoe UI', Arial" font-size="9" fill="#7F1D1D">(Acceso exclusivo Staff)</text>
+    </g>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- PIE DE CONTEXTO TÉCNICO                                                   -->
+  <!-- ========================================================================= -->
+  <g transform="translate(40, 715)">
+    <rect x="0" y="0" width="840" height="65" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+    <text x="20" y="24" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#7209B7">NOTAS DE ARQUITECTURA DE ENRUTAMIENTO (SPA):</text>
+    <text x="20" y="44" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#475569">
+      • Rutas públicas abiertas gestionadas con resolución dinámica y lazy loading.
+    </text>
+    <text x="430" y="44" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#475569">
+      • Módulo /admin protegido mediante guardia de rutas RBAC (RoleGuard).
+    </text>
+  </g>
+
+  <!-- CINTA INFERIOR INSTITUCIONAL -->
+  <rect x="0" y="815" width="920" height="45" rx="0" fill="#0F172A" />
+  <text x="460" y="842" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">EXPOJUY 2026 • ARQUITECTURA DE SOFTWARE • CÁMARA DE COMERCIO EXTERIOR DE JUJUY</text>
+</svg>

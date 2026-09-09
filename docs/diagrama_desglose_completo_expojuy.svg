@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1060" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-pre { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 2px; fill: #7209B7; text-anchor: middle; }
+      .hdr-main { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: 900; fill: #0F172A; text-anchor: middle; }
+
+      .root-txt { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; font-weight: 900; fill: #FFFFFF; text-anchor: middle; letter-spacing: 1px; }
+      .root-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: 600; fill: #E9D5FF; text-anchor: middle; }
+
+      .card-title-purp { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: 800; fill: #7209B7; }
+      .card-title-cyan { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: 800; fill: #0891B2; }
+
+      .item-bullet { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: 700; fill: #7209B7; }
+      .item-bullet-c { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: 700; fill: #0891B2; }
+      .item-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #334155; font-weight: 500; }
+      
+      .region-pill { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; font-weight: 800; fill: #581C87; text-anchor: middle; }
+      .region-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.5px; fill: #475569; }
+
+      .conn-line { stroke: #94A3B8; stroke-width: 1.8; fill: none; stroke-linecap: round; }
+      .conn-main { stroke: #7209B7; stroke-width: 2.2; fill: none; }
+
+      .card-shadow { filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.07)); }
+    </style>
+
+    <linearGradient id="gradRoot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7209B7" />
+      <stop offset="100%" stop-color="#560BAD" />
+    </linearGradient>
+
+    <linearGradient id="gradReg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EDE9FE" />
+      <stop offset="100%" stop-color="#DDD6FE" />
+    </linearGradient>
+  </defs>
+
+  <!-- FONDO GENERAL DEL DIAGRAMA -->
+  <rect x="0" y="0" width="960" height="1060" rx="16" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- TITULAR DEL DOCUMENTO -->
+  <text x="480" y="32" class="hdr-pre">ARQUITECTURA DE INFORMACIÓN Y NAVEGACIÓN FUNCIONAL</text>
+  <text x="480" y="54" class="hdr-main">EXPOJUY 2026 • ESTRUCTURA MODULAR COMPLETA</text>
+
+  <!-- NODO CENTRAL SUPERIOR: EXPOJUY 2026 -->
+  <g class="card-shadow">
+    <rect x="340" y="72" width="280" height="54" rx="27" fill="url(#gradRoot)" stroke="#A881FC" stroke-width="2" />
+    <text x="480" y="96" class="root-txt">EXPOJUY 2026</text>
+    <text x="480" y="113" class="root-sub">Portal Central del Evento</text>
+  </g>
+
+  <!-- LÍNEAS DE DISTRIBUCIÓN DESDE LA RAÍZ A LAS 3 COLUMNAS -->
+  <path d="M 480 126 L 480 148" class="conn-main" />
+  <path d="M 180 148 L 780 148" class="conn-main" />
+  <path d="M 180 148 L 180 170" class="conn-line" />
+  <path d="M 480 148 L 480 170" class="conn-line" />
+  <path d="M 780 148 L 780 170" class="conn-line" />
+
+  <!-- ========================================================================= -->
+  <!-- COLUMNA 1 (IZQUIERDA, X = 40): INICIO, AGENDA, EXPOSITORES                -->
+  <!-- ========================================================================= -->
+  
+  <!-- 1. INICIO -->
+  <g class="card-shadow" transform="translate(40, 170)">
+    <rect x="0" y="0" width="280" height="180" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#F3E8FF" />
+    <text x="14" y="22" class="card-title-purp">Inicio</text>
+
+    <text x="14" y="55" class="item-bullet">▪</text>
+    <text x="26" y="55" class="item-text">Presentación institucional</text>
+
+    <text x="14" y="79" class="item-bullet">▪</text>
+    <text x="26" y="79" class="item-text">Información destacada del evento</text>
+
+    <text x="14" y="103" class="item-bullet">▪</text>
+    <text x="26" y="103" class="item-text">Acceso directo a Agenda</text>
+
+    <text x="14" y="127" class="item-bullet">▪</text>
+    <text x="26" y="127" class="item-text">Acceso directo a Expositores</text>
+
+    <text x="14" y="151" class="item-bullet">▪</text>
+    <text x="26" y="151" class="item-text">Información destacada / Noticias</text>
+  </g>
+
+  <!-- 2. AGENDA -->
+  <g class="card-shadow" transform="translate(40, 375)">
+    <rect x="0" y="0" width="280" height="165" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#E0F7FA" />
+    <text x="14" y="22" class="card-title-cyan">Agenda</text>
+
+    <text x="14" y="55" class="item-bullet-c">▪</text>
+    <text x="26" y="55" class="item-text">Jornadas temáticas (Días 1 a 4)</text>
+
+    <text x="14" y="81" class="item-bullet-c">▪</text>
+    <text x="26" y="81" class="item-text">Actividades y cronograma</text>
+
+    <text x="14" y="107" class="item-bullet-c">▪</text>
+    <text x="26" y="107" class="item-text">Conferencias magistrales y paneles</text>
+
+    <text x="14" y="133" class="item-bullet-c">▪</text>
+    <text x="26" y="133" class="item-text">Información de cada actividad y salas</text>
+  </g>
+
+  <!-- 3. EXPOSITORES -->
+  <g class="card-shadow" transform="translate(40, 565)">
+    <rect x="0" y="0" width="280" height="150" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#F3E8FF" />
+    <text x="14" y="22" class="card-title-purp">Expositores</text>
+
+    <text x="14" y="56" class="item-bullet">▪</text>
+    <text x="26" y="56" class="item-text">Empresas y organismos participantes</text>
+
+    <text x="14" y="84" class="item-bullet">▪</text>
+    <text x="26" y="84" class="item-text">Información de expositores y stand</text>
+
+    <text x="14" y="112" class="item-bullet">▪</text>
+    <text x="26" y="112" class="item-text">Clasificación / búsqueda por categorías</text>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- COLUMNA 2 (CENTRAL, X = 340): DESCUBRÍ JUJUY, PLANO, RONDA DE NEGOCIOS    -->
+  <!-- ========================================================================= -->
+
+  <!-- 4. DESCUBRÍ JUJUY (AMPLIO CON 4 REGIONES Y CONTENIDO) -->
+  <g class="card-shadow" transform="translate(340, 170)">
+    <rect x="0" y="0" width="280" height="275" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#F3E8FF" />
+    <text x="14" y="22" class="card-title-purp">Descubrí Jujuy</text>
+
+    <!-- 4 Regiones en Chips Horizontales -->
+    <g transform="translate(10, 44)">
+      <rect x="0" y="0" width="60" height="22" rx="6" fill="url(#gradReg)" stroke="#A881FC" />
+      <text x="30" y="15" class="region-pill">Puna</text>
+
+      <rect x="66" y="0" width="64" height="22" rx="6" fill="url(#gradReg)" stroke="#A881FC" />
+      <text x="98" y="15" class="region-pill">Quebrada</text>
+
+      <rect x="136" y="0" width="60" height="22" rx="6" fill="url(#gradReg)" stroke="#A881FC" />
+      <text x="166" y="15" class="region-pill">Valles</text>
+
+      <rect x="202" y="0" width="58" height="22" rx="6" fill="url(#gradReg)" stroke="#A881FC" />
+      <text x="231" y="15" class="region-pill">Yungas</text>
+    </g>
+
+    <line x1="15" y1="78" x2="265" y2="78" stroke="#E2E8F0" />
+    <text x="14" y="96" font-family="'Segoe UI', Arial" font-size="10.5" font-weight="bold" fill="#7209B7">Contenidos de cada región:</text>
+
+    <rect x="12" y="106" width="256" height="152" rx="8" fill="#F8FAFC" stroke="#E2E8F0" />
+    <text x="22" y="128" class="item-bullet">1.</text>
+    <text x="36" y="128" class="item-text font-semibold">Información turística</text>
+    <text x="36" y="142" class="region-sub">Atractivos, circuitos y paisajes</text>
+
+    <text x="22" y="166" class="item-bullet">2.</text>
+    <text x="36" y="166" class="item-text font-semibold">Información cultural</text>
+    <text x="36" y="180" class="region-sub">Patrimonio, fiestas y tradiciones</text>
+
+    <text x="22" y="204" class="item-bullet">3.</text>
+    <text x="36" y="204" class="item-text font-semibold">Municipios</text>
+    <text x="36" y="218" class="region-sub">Gobiernos locales y jurisdicciones</text>
+
+    <text x="22" y="242" class="item-bullet">4.</text>
+    <text x="36" y="242" class="item-text font-semibold">Empresas de la región</text>
+    <text x="36" y="254" class="region-sub">Productores y polos locales</text>
+  </g>
+
+  <!-- 5. PLANO / MAPA -->
+  <g class="card-shadow" transform="translate(340, 465)">
+    <rect x="0" y="0" width="280" height="145" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#E0F7FA" />
+    <text x="14" y="22" class="card-title-cyan">Plano / Mapa</text>
+
+    <text x="14" y="55" class="item-bullet-c">▪</text>
+    <text x="26" y="55" class="item-text">Mapa interactivo del predio</text>
+
+    <text x="14" y="81" class="item-bullet-c">▪</text>
+    <text x="26" y="81" class="item-text">Ubicación de stands y pabellones</text>
+
+    <text x="14" y="107" class="item-bullet-c">▪</text>
+    <text x="26" y="107" class="item-text">Información de sectores y servicios</text>
+  </g>
+
+  <!-- 6. RONDA DE NEGOCIOS -->
+  <g class="card-shadow" transform="translate(340, 630)">
+    <rect x="0" y="0" width="280" height="120" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#F3E8FF" />
+    <text x="14" y="22" class="card-title-purp">Ronda de Negocios</text>
+
+    <text x="14" y="56" class="item-bullet">▪</text>
+    <text x="26" y="56" class="item-text">Información general del espacio B2B</text>
+
+    <text x="14" y="84" class="item-bullet">▪</text>
+    <text x="26" y="84" class="item-text">Acceso y formulario de participación</text>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- COLUMNA 3 (DERECHA, X = 640): NOTICIAS, ACREDITACIÓN, CONTACTO             -->
+  <!-- ========================================================================= -->
+
+  <!-- 7. NOTICIAS -->
+  <g class="card-shadow" transform="translate(640, 170)">
+    <rect x="0" y="0" width="280" height="125" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#E0F7FA" />
+    <text x="14" y="22" class="card-title-cyan">Noticias</text>
+
+    <text x="14" y="56" class="item-bullet-c">▪</text>
+    <text x="26" y="56" class="item-text">Listado y archivo de noticias</text>
+
+    <text x="14" y="84" class="item-bullet-c">▪</text>
+    <text x="26" y="84" class="item-text">Detalle y lectura de cada noticia</text>
+  </g>
+
+  <!-- 8. ACREDITACIÓN / ENTRADAS -->
+  <g class="card-shadow" transform="translate(640, 315)">
+    <rect x="0" y="0" width="280" height="115" rx="10" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#F3E8FF" />
+    <text x="14" y="22" class="card-title-purp">Acreditación / Entradas</text>
+
+    <text x="14" y="56" class="item-bullet">▪</text>
+    <text x="26" y="56" class="item-text">Acceso al proceso de acreditación</text>
+
+    <text x="14" y="80" class="item-bullet">▪</text>
+    <text x="26" y="80" class="item-text">Adquisición online de entradas</text>
+  </g>
+
+  <!-- 9. CONTACTO -->
+  <g class="card-shadow" transform="translate(640, 450)">
+    <rect x="0" y="0" width="280" height="125" rx="10" fill="#FFFFFF" stroke="#1DBECB" stroke-width="1.8" />
+    <rect x="0" y="0" width="280" height="34" rx="10" fill="#E0F7FA" />
+    <text x="14" y="22" class="card-title-cyan">Contacto</text>
+
+    <text x="14" y="56" class="item-bullet-c">▪</text>
+    <text x="26" y="56" class="item-text">Formulario de contacto y consultas</text>
+
+    <text x="14" y="84" class="item-bullet-c">▪</text>
+    <text x="26" y="84" class="item-text">Canales oficiales y redes sociales</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- RESUMEN DE INTEGRACIÓN DE NAVEGACIÓN                                      -->
+  <!-- ========================================================================= -->
+  <g transform="translate(40, 775)">
+    <rect x="0" y="0" width="880" height="190" rx="12" fill="#FFFFFF" stroke="#7209B7" stroke-width="1.5" />
+    
+    <rect x="0" y="0" width="880" height="36" rx="12" fill="#7209B7" />
+    <text x="440" y="23" font-family="'Segoe UI', Arial" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+      MATRIZ DE ARTICULACIÓN DE EXPERIENCIA DE USUARIO (UX)
+    </text>
+
+    <g transform="translate(25, 55)">
+      <!-- Columna A -->
+      <rect x="0" y="0" width="260" height="110" rx="8" fill="#F8FAFC" stroke="#E2E8F0" />
+      <text x="14" y="22" font-family="'Segoe UI', Arial" font-size="11" font-weight="bold" fill="#7209B7">Difusión &amp; Contenidos</text>
+      <text x="14" y="44" class="region-sub">• Inicio / Portada interactiva</text>
+      <text x="14" y="64" class="region-sub">• Agenda integral de conferencias</text>
+      <text x="14" y="84" class="region-sub">• Sala de prensa y noticias oficiales</text>
+
+      <!-- Columna B -->
+      <rect x="285" y="0" width="260" height="110" rx="8" fill="#F8FAFC" stroke="#E2E8F0" />
+      <text x="299" y="22" font-family="'Segoe UI', Arial" font-size="11" font-weight="bold" fill="#0891B2">Comercio &amp; Territorio</text>
+      <text x="299" y="44" class="region-sub">• Directorio B2B de Expositores</text>
+      <text x="299" y="64" class="region-sub">• Ronda de Negocios y vinculación</text>
+      <text x="299" y="84" class="region-sub">• Identidad territorial: 4 Regiones</text>
+
+      <!-- Columna C -->
+      <rect x="570" y="0" width="260" height="110" rx="8" fill="#F8FAFC" stroke="#E2E8F0" />
+      <text x="584" y="22" font-family="'Segoe UI', Arial" font-size="11" font-weight="bold" fill="#7209B7">Operatividad &amp; Acceso</text>
+      <text x="584" y="44" class="region-sub">• Acreditación digital de visitantes</text>
+      <text x="584" y="64" class="region-sub">• Plano interactivo del predio</text>
+      <text x="584" y="84" class="region-sub">• Mesa de ayuda y formulario de contacto</text>
+    </g>
+  </g>
+
+  <!-- PIE INSTITUCIONAL -->
+  <rect x="0" y="1005" width="960" height="55" rx="0" fill="#0F172A" />
+  <text x="480" y="1037" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">EXPOJUY 2026 • ARQUITECTURA INTEGRAL DE LA INFORMACIÓN • CÁMARA DE COMERCIO EXTERIOR DE JUJUY</text>
+</svg>
